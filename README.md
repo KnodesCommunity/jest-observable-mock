@@ -1,2 +1,2 @@
-# jest-observable-mock
+# @scitizen/jest-observable-mock
 Add observables recording calls to mocks

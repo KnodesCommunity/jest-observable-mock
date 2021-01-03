@@ -1,0 +1,70 @@
+{
+  "name": "@scitizen/jest-observable-mock",
+  "version": "0.0.0",
+  "description": "Add observables recording calls to mocks",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --config .eslintrc.js . --ext .js,.ts . .eslintrc.js",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:commit-message:current": "commitlint -g ./package.json -e ./.git/COMMIT_EDITMSG",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest --config jest.unit.config.js --passWithNoTests",
+    "test:unit:watch": "npm run test:unit -- --watch",
+    "test:integration": "jest --config jest.integration.config.js --passWithNoTests",
+    "test:integration:watch": "npm run test:integration -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Scitizen/jest-observable-mock.git"
+  },
+  "keywords": [
+    "jest",
+    "observable",
+    "rxjs",
+    "mock",
+    "stream"
+  ],
+  "author": "GerkinDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Scitizen/jest-observable-mock/issues"
+  },
+  "homepage": "https://github.com/Scitizen/jest-observable-mock#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.17.0",
+    "git-cz": "^4.7.6",
+    "husky": "^4.3.6",
+    "jest": "^26.6.3",
+    "rxjs": "^6.6.3",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "jest-mock": "^26.6.2"
+  },
+  "peerDependencies": {
+    "rxjs": ">6.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "parserPreset": "git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run lint:commit-message:current",
+      "pre-commit": "npm run lint && npm run test && npm run build"
+    }
+  }
+}
