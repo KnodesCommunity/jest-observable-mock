@@ -1,2 +1,3 @@
-# @scitizen/jest-observable-mock
-Add observables recording calls to mocks
+# @knodes/rxjs-testing-utils
+
+A set of helpers to check RxJs behavior. Compatible with jest & jasmine (for now).

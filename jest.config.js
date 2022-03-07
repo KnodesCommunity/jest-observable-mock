@@ -1,17 +1,9 @@
 module.exports = {
 	preset: 'ts-jest',
-	testEnvironment: 'node',
-	globals: {
-		'ts-jest': {
-			tsconfig: 'tsconfig.spec.json',
-			compiler: 'ttypescript',
-		},
+	modulePathIgnorePatterns: [ '<rootDir>/dist/' ],
+	moduleNameMapper: {
+		'^@knodes/rxjs-testing-utils/(.*)$': [
+			'<rootDir>/src/$1/src/index.ts',
+		],
 	},
-	moduleFileExtensions: [ 'js', 'ts' ],
-	testPathIgnorePatterns: ['node_modules'],
-	collectCoverageFrom: ['src/**/*.{[jt]s}'],
-	modulePathIgnorePatterns: [ '<rootDir>/dist' ],
-	testMatch: [
-		'<rootDir>/src/**/*.{spec,test}.[jt]s',
-	],
 };
